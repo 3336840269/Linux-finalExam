@@ -13,7 +13,7 @@ sudo sed -i '6,$s/# //g' /etc/rsyncd.conf
 sudo sed -i '$d' /etc/rsyncd.conf
 sudo sed -i '$d' /etc/rsyncd.conf
 sudo sed -i '$d' /etc/rsyncd.conf
-sudo sed -i 's/nobody/rsync-a/' /etc/rsyncd.conf
+sudo sed -i "s/nobody/${id}/" /etc/rsyncd.conf
 sudo sed -i '$a read only = no' /etc/rsyncd.conf
 sudo sed -i '$a fake super = yes' /etc/rsyncd.conf
 
@@ -31,6 +31,6 @@ sudo useradd -s /sbin/nologin -M ${id}
 sudo systemctl enable --now rsyncd
 sudo firewall-cmd --add-service=rsyncd
 sudo firewall-cmd --add-service=rsyncd --per
-sudo chomd 600 /etc/rsyncPaaawd.password
+sudo chmod 600 /etc/rsyncPaaawd.password
 sudo chown -R ${id}:${id} /folder-a
 sudo setsebool -P rsync_full_access on
