@@ -12,3 +12,5 @@ cd ${NewFlie}/${Date} && sudo tar czf ${DestDir} ${OldFile}
 
 export RSYNC_PASSWORD=123
 rsync -avz ${DestDir} rsync_a@192.168.35.201::module-a
+
+#*/3     *       *       *       *       bash /home/sziit/shell202.sh
